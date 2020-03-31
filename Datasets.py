@@ -3,7 +3,7 @@ from torch.utils.data import TensorDataset
 from torchvision import datasets, transforms
 import numpy as np
 def MnistLabel(class_num):
-    raw_dataset = datasets.MNIST('../data', train=True, download=True,
+    raw_dataset = datasets.FashionMNIST('../data', train=True, download=True,
                    transform=transforms.Compose([
                        transforms.ToTensor(),
                    ]))
@@ -25,13 +25,13 @@ def MnistLabel(class_num):
     return TensorDataset(torch.FloatTensor(np.array(data)), torch.LongTensor(np.array(labels)))
 
 def MnistUnlabel():
-    raw_dataset = datasets.MNIST('../data', train=True, download=True,
+    raw_dataset = datasets.FashionMNIST('../data', train=True, download=True,
                    transform=transforms.Compose([
                        transforms.ToTensor(),
                    ]))
     return raw_dataset
 def MnistTest():
-    return datasets.MNIST('../data', train=False, download=True,
+    return datasets.FashionMNIST('../data', train=False, download=True,
                    transform=transforms.Compose([
                        transforms.ToTensor(),
                    ]))
